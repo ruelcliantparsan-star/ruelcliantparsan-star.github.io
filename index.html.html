@@ -1,0 +1,760 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ruel Cliant Parsan — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink: #111110;
+  --ink-2: #4b4a47;
+  --ink-3: #9a9890;
+  --paper: #f9f8f5;
+  --paper-2: #f1efe8;
+  --accent: #2a6fdb;
+  --rule: rgba(17,17,16,0.09);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.25rem 4rem;
+  background: rgba(249,248,245,0.94);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--rule);
+}
+
+.nav-logo {
+  font-family: 'Fraunces', serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.nav-links { display: flex; gap: 2.25rem; list-style: none; }
+.nav-links a {
+  font-size: 0.825rem;
+  color: var(--ink-2);
+  text-decoration: none;
+  letter-spacing: 0.015em;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--accent); }
+
+.nav-available {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.75rem;
+  color: #2e7d32;
+  letter-spacing: 0.02em;
+}
+.nav-available::before {
+  content: '';
+  display: block; width: 6px; height: 6px;
+  border-radius: 50%; background: #4caf50;
+}
+
+/* SECTIONS */
+section { padding: 7rem 4rem; }
+.container { max-width: 1000px; margin: 0 auto; }
+
+/* HERO */
+#hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding-top: 6rem; padding-bottom: 4rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-greeting {
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 1.25rem;
+}
+
+.hero-name {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 300;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+.hero-name span { display: block; }
+.hero-name .first { font-weight: 300; }
+.hero-name .last { font-weight: 500; font-style: italic; }
+
+.hero-role {
+  font-size: 1rem;
+  color: var(--ink-2);
+  font-weight: 300;
+  margin-bottom: 0.5rem;
+}
+
+.hero-tagline {
+  font-family: 'Fraunces', serif;
+  font-size: 1.1rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--ink-3);
+  line-height: 1.55;
+  margin-bottom: 2.25rem;
+  max-width: 400px;
+}
+
+.hero-cta { display: flex; gap: 0.875rem; flex-wrap: wrap; align-items: center; }
+
+.btn-primary {
+  display: inline-block;
+  padding: 0.7rem 1.6rem;
+  background: var(--ink);
+  color: var(--paper);
+  text-decoration: none;
+  font-size: 0.825rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  border-radius: 3px;
+  transition: background 0.2s;
+}
+.btn-primary:hover { background: var(--accent); }
+
+.btn-ghost {
+  display: inline-block;
+  padding: 0.7rem 1.6rem;
+  border: 1px solid rgba(17,17,16,0.2);
+  color: var(--ink-2);
+  text-decoration: none;
+  font-size: 0.825rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  border-radius: 3px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+.hero-right { display: flex; flex-direction: column; gap: 1.25rem; }
+
+.hero-card {
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 1.4rem 1.5rem;
+}
+
+.hero-card-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 0.5rem;
+}
+
+.hero-card-value {
+  font-family: 'Fraunces', serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.hero-card-sub {
+  font-size: 0.8rem;
+  color: var(--ink-3);
+  margin-top: 0.25rem;
+  font-weight: 300;
+}
+
+/* ABOUT / SKILLS */
+#skills { background: var(--paper-2); }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.section-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 0.75rem;
+}
+
+.sticky-heading {
+  font-family: 'Fraunces', serif;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  position: sticky;
+  top: 6rem;
+}
+.sticky-heading em { font-style: italic; color: var(--ink-3); }
+
+.about-body p {
+  font-size: 1rem;
+  color: var(--ink-2);
+  line-height: 1.85;
+  font-weight: 300;
+  margin-bottom: 1.25rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.skill-card {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 1.1rem 1.25rem;
+}
+
+.skill-name {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.25rem;
+}
+
+.skill-level {
+  font-size: 0.75rem;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+}
+
+.skill-bar-track {
+  margin-top: 0.6rem;
+  height: 3px;
+  background: var(--rule);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+  opacity: 0.5;
+}
+
+/* EDUCATION */
+#education {}
+
+.section-header {
+  display: flex; align-items: baseline; justify-content: space-between;
+  margin-bottom: 3rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+}
+
+.section-meta { font-size: 0.78rem; color: var(--ink-3); letter-spacing: 0.04em; }
+
+.timeline { display: flex; flex-direction: column; }
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 2rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.timeline-item:last-child { border-bottom: none; }
+
+.timeline-date {
+  font-size: 0.8rem;
+  color: var(--ink-3);
+  font-weight: 300;
+  padding-top: 0.2rem;
+  line-height: 1.4;
+}
+
+.timeline-badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  padding: 0.2rem 0.55rem;
+  background: #e8f4e8;
+  color: #2e7d32;
+  border-radius: 2px;
+  letter-spacing: 0.04em;
+  margin-top: 0.4rem;
+}
+
+.timeline-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+.timeline-body {
+  font-size: 0.9rem;
+  color: var(--ink-2);
+  font-weight: 300;
+  line-height: 1.75;
+}
+
+/* PROJECTS & EXPERIENCE */
+#projects {}
+
+.projects-list {}
+
+.project-row {
+  display: grid;
+  grid-template-columns: 48px 1fr auto;
+  gap: 1.5rem;
+  align-items: start;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--rule);
+  text-decoration: none;
+  color: inherit;
+}
+
+.project-row:hover .project-row-title { color: var(--accent); }
+.project-row:hover .project-row-arrow { transform: translate(3px, -3px); color: var(--accent); }
+
+.proj-num {
+  font-family: 'Fraunces', serif;
+  font-size: 0.85rem;
+  color: var(--ink-3);
+  padding-top: 0.15rem;
+  font-style: italic;
+}
+
+.project-row-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.45rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+  transition: color 0.2s;
+}
+
+.project-row-desc {
+  font-size: 0.875rem;
+  color: var(--ink-2);
+  font-weight: 300;
+  line-height: 1.7;
+  max-width: 520px;
+  margin-bottom: 0.875rem;
+}
+
+.proj-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+.proj-tag {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid var(--rule);
+  color: var(--ink-3);
+  border-radius: 2px;
+  letter-spacing: 0.04em;
+}
+
+.proj-tag.soon {
+  background: #fff8e1;
+  border-color: #ffe082;
+  color: #b8860b;
+}
+
+.project-row-arrow {
+  font-size: 1.1rem;
+  color: var(--ink-3);
+  padding-top: 0.25rem;
+  transition: transform 0.2s, color 0.2s;
+  flex-shrink: 0;
+}
+
+/* STRENGTHS (dark) */
+#strengths { background: var(--ink); }
+#strengths .section-title { color: var(--paper); }
+#strengths .section-meta { color: rgba(249,248,245,0.3); }
+#strengths .section-header { border-bottom-color: rgba(249,248,245,0.1); }
+
+.strengths-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5px;
+  background: rgba(249,248,245,0.08);
+  border: 1px solid rgba(249,248,245,0.08);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.strength-cell {
+  padding: 2rem 2.25rem;
+  background: var(--ink);
+  transition: background 0.25s;
+}
+.strength-cell:hover { background: #1a1a18; }
+
+.strength-icon {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: var(--accent);
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 300;
+}
+
+.strength-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: rgba(249,248,245,0.9);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.strength-desc {
+  font-size: 0.85rem;
+  color: rgba(249,248,245,0.45);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* CONTACT */
+#contact { text-align: center; border-top: 1px solid var(--rule); }
+
+.contact-headline {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.5rem, 5.5vw, 4rem);
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 1.25rem;
+}
+.contact-headline em { font-style: italic; color: var(--accent); }
+
+.contact-sub {
+  font-size: 0.95rem;
+  color: var(--ink-2);
+  max-width: 380px;
+  margin: 0 auto 2.5rem;
+  font-weight: 300;
+  line-height: 1.75;
+}
+
+.contact-details {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.contact-item {
+  text-align: left;
+}
+
+.contact-item-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 0.3rem;
+}
+
+.contact-item-value {
+  font-size: 0.95rem;
+  color: var(--ink);
+  font-weight: 400;
+  text-decoration: none;
+}
+a.contact-item-value:hover { color: var(--accent); }
+
+.contact-links { display: flex; gap: 0.875rem; justify-content: center; flex-wrap: wrap; }
+
+/* FOOTER */
+footer {
+  padding: 1.75rem 4rem;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: var(--ink-3);
+}
+
+/* RESPONSIVE */
+@media (max-width: 820px) {
+  nav { padding: 1rem 1.5rem; }
+  section { padding: 5rem 1.5rem; }
+  .nav-links, .nav-available { display: none; }
+  #hero { min-height: auto; padding-top: 7rem; }
+  .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .sticky-heading { position: static; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .timeline-item { grid-template-columns: 1fr; gap: 0.5rem; }
+  .project-row { grid-template-columns: 32px 1fr auto; gap: 1rem; }
+  .strengths-grid { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: 0.4rem; text-align: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#hero" class="nav-logo">Ruel Cliant Parsan</a>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#strengths">About me</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <span class="nav-available">Open to opportunities</span>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <p class="hero-greeting">Hello, I'm</p>
+        <h1 class="hero-name">
+          <span class="first">Ruel</span>
+          <span class="last">Parsan</span>
+        </h1>
+        <p class="hero-role">Computer Science Student · Web Developer in Training</p>
+        <p class="hero-tagline">"A motivated student with a growing passion for web development and programming — excited about what comes next."</p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn-primary">See my work</a>
+          <a href="#contact" class="btn-ghost">Get in touch</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-card">
+          <p class="hero-card-label">Currently based in</p>
+          <p class="hero-card-value">Davao, Philippines</p>
+          <p class="hero-card-sub">Available for remote & local opportunities</p>
+        </div>
+        <div class="hero-card">
+          <p class="hero-card-label">Currently studying at</p>
+          <p class="hero-card-value">Davao Del Norte State College</p>
+          <p class="hero-card-sub">Computer Science & Technology</p>
+        </div>
+        <div class="hero-card">
+          <p class="hero-card-label">Focus areas</p>
+          <p class="hero-card-value">HTML · CSS · Programming</p>
+          <p class="hero-card-sub">Building foundations, one line at a time</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <p class="section-label">Skills</p>
+        <h2 class="sticky-heading">What I'm<br><em>learning</em></h2>
+      </div>
+      <div>
+        <div class="about-body">
+          <p>I'm currently building my foundation in web development and computer science. Every skill listed here represents real time invested — and I'm adding to this list every day.</p>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <p class="skill-name">HTML</p>
+            <p class="skill-level">Beginner</p>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 35%"></div></div>
+          </div>
+          <div class="skill-card">
+            <p class="skill-name">CSS</p>
+            <p class="skill-level">Beginner</p>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 30%"></div></div>
+          </div>
+          <div class="skill-card">
+            <p class="skill-name">Programming</p>
+            <p class="skill-level">Beginner</p>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 25%"></div></div>
+          </div>
+          <div class="skill-card">
+            <p class="skill-name">Problem Solving</p>
+            <p class="skill-level">Learning</p>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 40%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Education</h2>
+      <span class="section-meta">01 institution</span>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">
+          Present<br>
+          <span class="timeline-badge">Enrolled</span>
+        </div>
+        <div>
+          <h3 class="timeline-title">Davao Del Norte State College</h3>
+          <p class="timeline-body">Currently enrolled as a student in Davao Del Norte, Philippines. Developing core knowledge in technology and computer science fundamentals — with a particular interest in web development and software.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Projects & Experience</h2>
+      <span class="section-meta">In progress</span>
+    </div>
+    <div class="projects-list">
+
+      <div class="project-row">
+        <span class="proj-num">01</span>
+        <div>
+          <h3 class="project-row-title">Projects coming soon</h3>
+          <p class="project-row-desc">Currently working on building my first real projects. This space will fill up — check back soon to see what I've been making.</p>
+          <div class="proj-tags">
+            <span class="proj-tag soon">In progress</span>
+            <span class="proj-tag">HTML</span>
+            <span class="proj-tag">CSS</span>
+          </div>
+        </div>
+        <span class="project-row-arrow" style="opacity:0.3">↗</span>
+      </div>
+
+      <div class="project-row">
+        <span class="proj-num">02</span>
+        <div>
+          <h3 class="project-row-title">Just getting started</h3>
+          <p class="project-row-desc">No work experience yet — and that's okay. I'm actively looking for internships, part-time roles, or collaborative projects where I can learn while contributing.</p>
+          <div class="proj-tags">
+            <span class="proj-tag soon">Open to opportunities</span>
+          </div>
+        </div>
+        <span class="project-row-arrow" style="opacity:0.3">↗</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- STRENGTHS / ABOUT (dark) -->
+<section id="strengths">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">What I bring</h2>
+      <span class="section-meta">04 qualities</span>
+    </div>
+    <div class="strengths-grid">
+      <div class="strength-cell">
+        <p class="strength-icon">i.</p>
+        <h3 class="strength-title">Motivation</h3>
+        <p class="strength-desc">I'm not just going through the motions. I genuinely want to understand how things work and build things that matter — and that energy shows up in how I approach every task.</p>
+      </div>
+      <div class="strength-cell">
+        <p class="strength-icon">ii.</p>
+        <h3 class="strength-title">Curiosity</h3>
+        <p class="strength-desc">When I don't know something, I look it up, try it out, and ask questions. Being a beginner doesn't bother me — not growing would.</p>
+      </div>
+      <div class="strength-cell">
+        <p class="strength-icon">iii.</p>
+        <h3 class="strength-title">Problem Solving</h3>
+        <p class="strength-desc">I'm building the habit of thinking before acting — understanding a problem fully before jumping to a solution. It's a skill I take seriously.</p>
+      </div>
+      <div class="strength-cell">
+        <p class="strength-icon">iv.</p>
+        <h3 class="strength-title">Openness</h3>
+        <p class="strength-desc">I'm early in my career, which means I'm teachable. I listen well, take feedback seriously, and I'm not precious about being wrong if it means learning faster.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <h2 class="contact-headline">Let's connect<br>and <em>build something.</em></h2>
+    <p class="contact-sub">I'm open to internships, collaborations, and any opportunity to learn by doing. Don't hesitate to reach out.</p>
+    <div class="contact-details">
+      <div class="contact-item">
+        <p class="contact-item-label">Email</p>
+        <a href="mailto:ruel@example.com" class="contact-item-value">ruel@example.com</a>
+      </div>
+      <div class="contact-item">
+        <p class="contact-item-label">Phone</p>
+        <p class="contact-item-value">0981 523 9724</p>
+      </div>
+      <div class="contact-item">
+        <p class="contact-item-label">Location</p>
+        <p class="contact-item-value">Davao, Philippines</p>
+      </div>
+    </div>
+    <div class="contact-links">
+      <a href="ruelcliantparsan@gmail.com" class="btn-primary">Send me an email</a>
+      <a href="https://github.com/ruelcliantparsan-star" class="btn-ghost" target="_blank" rel="noopener">Original site ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Ruel Cliant Parsan · Davao, Philippines</span>
+  <span>RCP.</span>
+</footer>
+
+</body>
+</html>
